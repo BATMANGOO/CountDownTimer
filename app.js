@@ -23,13 +23,17 @@ function getTimeDifference(start, end) {
 
 let timer = setInterval(function () {
   const StartDate = new Date();
-  const endDate = new Date('January 1, 2020 12:00:00');
+  const endDate = new Date('January 1, 2020 12:00:00 AM');
   let timeDifferenceObj = getTimeDifference(StartDate, endDate);
 
-  timerDayEl.textContent = below10(timeDifferenceObj.rDays);
-  timerHourEl.textContent = below10(timeDifferenceObj.rHours);
-  timerMinuteEl.textContent = below10(timeDifferenceObj.rMinutes);
-  timerSecondEl.textContent = below10(timeDifferenceObj.rSeconds);
+  if (timeDifferenceObj.rDays === 0 && timeDifferenceObj.rHours === 0 && timeDifferenceObj.rMinutes === 0 && timeDifferenceObj.rSeconds === 0) {
+    clearInterval(timer);
+  } else {
+    timerDayEl.textContent = below10(timeDifferenceObj.rDays);
+    timerHourEl.textContent = below10(timeDifferenceObj.rHours);
+    timerMinuteEl.textContent = below10(timeDifferenceObj.rMinutes);
+    timerSecondEl.textContent = below10(timeDifferenceObj.rSeconds);
+  }
 }, 1000);
 
 function below10(time) {
