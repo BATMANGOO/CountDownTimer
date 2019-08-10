@@ -21,9 +21,16 @@ function getTimeDifference(start, end) {
   };
 }
 
+function below10(time) {
+  if (time < 10) {
+    return `0${time}`;
+  }
+  return time;
+}
+
 let timer = setInterval(function () {
   const StartDate = new Date();
-  const endDate = new Date('January 1, 2020 12:00:00 AM');
+  const endDate = new Date('August 10, 2019 9:55:00 AM');
   let timeDifferenceObj = getTimeDifference(StartDate, endDate);
 
   if (timeDifferenceObj.rDays === 0 && timeDifferenceObj.rHours === 0 && timeDifferenceObj.rMinutes === 0 && timeDifferenceObj.rSeconds === 0) {
@@ -35,10 +42,3 @@ let timer = setInterval(function () {
     timerSecondEl.textContent = below10(timeDifferenceObj.rSeconds);
   }
 }, 1000);
-
-function below10(time) {
-  if (time < 10) {
-    return `0${time}`;
-  }
-  return time;
-}
