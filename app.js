@@ -30,15 +30,14 @@ function below10(time) {
 
 let timer = setInterval(function () {
   const StartDate = new Date();
-  const endDate = new Date('August 10, 2019 9:55:00 AM');
+  const endDate = new Date('August 11, 2019 06:19:00 PM');
   let timeDifferenceObj = getTimeDifference(StartDate, endDate);
 
   if (timeDifferenceObj.rDays === 0 && timeDifferenceObj.rHours === 0 && timeDifferenceObj.rMinutes === 0 && timeDifferenceObj.rSeconds === 0) {
     clearInterval(timer);
-  } else {
-    timerDayEl.textContent = below10(timeDifferenceObj.rDays);
-    timerHourEl.textContent = below10(timeDifferenceObj.rHours);
-    timerMinuteEl.textContent = below10(timeDifferenceObj.rMinutes);
-    timerSecondEl.textContent = below10(timeDifferenceObj.rSeconds);
   }
+  timerDayEl.innerHTML = below10(timeDifferenceObj.rDays);
+  timerHourEl.innerHTML = below10(timeDifferenceObj.rHours);
+  timerMinuteEl.innerHTML = below10(timeDifferenceObj.rMinutes);
+  timerSecondEl.innerHTML = below10(timeDifferenceObj.rSeconds);
 }, 1000);
